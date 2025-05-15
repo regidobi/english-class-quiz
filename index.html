@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Quiz - Grade 8</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f0f8ff;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .option {
+            margin-top: 10px;
+            padding: 12px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .option:hover {
+            background-color: #d0d0d0;
+        }
+        .correct {
+            background-color: #b2f2bb !important;
+        }
+        .incorrect {
+            background-color: #ffadad !important;
+        }
+        #result {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>English Quiz - Grade 8</h1>
+        
+        <div class="question" id="q1">
+            <p><strong>1. What is the past tense of "go"?</strong></p>
+            <div class="option" onclick="checkAnswer(this, true)">Went</div>
+            <div class="option" onclick="checkAnswer(this, false)">Goed</div>
+            <div class="option" onclick="checkAnswer(this, false)">Goes</div>
+        </div>
+
+        <div class="question" id="q2">
+            <p><strong>2. Choose the correct sentence:</strong></p>
+            <div class="option" onclick="checkAnswer(this, false)">She don't like pizza.</div>
+            <div class="option" onclick="checkAnswer(this, true)">She doesn't like pizza.</div>
+            <div class="option" onclick="checkAnswer(this, false)">She no like pizza.</div>
+        </div>
+
+        <div class="question" id="q3">
+            <p><strong>3. Fill in the blank: I _____ English every day.</strong></p>
+            <div class="option" onclick="checkAnswer(this, false)">studys</div>
+            <div class="option" onclick="checkAnswer(this, true)">study</div>
+            <div class="option" onclick="checkAnswer(this, false)">studied</div>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        let totalQuestions = 3;
+        let correctAnswers = 0;
+        let answeredQuestions = 0;
+
+        function checkAnswer(element, isCorrect) {
+            if (element.parentElement.classList.contains("answered")) {
+                return; // prevent multiple answers per question
+            }
+            
+            if (isCorrect) {
+                element.classList.add("correct");
+                correctAnswers++;
+            } else {
+                element.classList.add("incorrect");
+            }
+
+            element.parentElement.classList.add("answered");
+            answeredQuestions++;
+
+            // Show result if all questions answered
+            if (answeredQuestions === totalQuestions) {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `You answered ${correctAnswers} out of ${totalQuestions} questions correctly.`;
+            if (correctAnswers === totalQuestions) {
+                resultDiv.innerHTML += "<br>Excellent job!";
+            } else if (correctAnswers >= 2) {
+                resultDiv.innerHTML += "<br>Good, but you can do better!";
+            } else {
+                resultDiv.innerHTML += "<br>Keep practicing!";
+            }
+        }
+    </script>
+
+</body>
+</html>
