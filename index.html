@@ -3,85 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Quiz - Grade 8</title>
+    <title>English Adventure - Grade 8</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 30px;
-            background-color: #f0f8ff;
+            font-family: 'Press Start 2P', cursive;
+            background-color: #000;
+            color: #00ffea;
+            padding: 20px;
         }
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: auto;
-            background-color: #fff;
+            background-color: #111;
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            box-shadow: 0 0 20px #00ffea;
         }
-        h1 {
+        h1, h2 {
             text-align: center;
-            color: #333;
+            color: #00ffea;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
         }
         .question {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #00ffea66;
         }
         .option {
             margin-top: 10px;
             padding: 12px;
-            background-color: #e0e0e0;
+            background-color: #333;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.1s;
         }
         .option:hover {
-            background-color: #d0d0d0;
+            background-color: #444;
+            transform: scale(1.02);
         }
         .correct {
-            background-color: #b2f2bb !important;
+            background-color: #28df99 !important;
         }
         .incorrect {
-            background-color: #ffadad !important;
+            background-color: #ff3860 !important;
         }
         #result {
             margin-top: 30px;
             text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-            color: #333;
+            font-size: 16px;
+            color: #fff;
         }
+
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>English Quiz - Grade 8</h1>
+        <h1>English Adventure</h1>
+        <h2>Level: Grade 8</h2>
         
+        <div class="intro">
+            Welcome to the English Adventure Game!<br>
+            Test your English knowledge by answering the questions below.<br>
+            Click on the correct answer to earn points. Let's start!
+        </div>
+
         <div class="question" id="q1">
-            <p><strong>1. What is the past tense of "go"?</strong></p>
-            <div class="option" onclick="checkAnswer(this, true)">Went</div>
-            <div class="option" onclick="checkAnswer(this, false)">Goed</div>
-            <div class="option" onclick="checkAnswer(this, false)">Goes</div>
+            <p>1. What is the past tense of "eat"?</p>
+            <div class="option" onclick="checkAnswer(this, true)">Ate</div>
+            <div class="option" onclick="checkAnswer(this, false)">Eated</div>
+            <div class="option" onclick="checkAnswer(this, false)">Eating</div>
         </div>
 
         <div class="question" id="q2">
-            <p><strong>2. Choose the correct sentence:</strong></p>
-            <div class="option" onclick="checkAnswer(this, false)">She don't like pizza.</div>
-            <div class="option" onclick="checkAnswer(this, true)">She doesn't like pizza.</div>
-            <div class="option" onclick="checkAnswer(this, false)">She no like pizza.</div>
+            <p>2. Choose the correct sentence:</p>
+            <div class="option" onclick="checkAnswer(this, false)">He go to school every day.</div>
+            <div class="option" onclick="checkAnswer(this, true)">He goes to school every day.</div>
+            <div class="option" onclick="checkAnswer(this, false)">He gone to school every day.</div>
         </div>
 
         <div class="question" id="q3">
-            <p><strong>3. Fill in the blank: I _____ English every day.</strong></p>
-            <div class="option" onclick="checkAnswer(this, false)">studys</div>
-            <div class="option" onclick="checkAnswer(this, true)">study</div>
-            <div class="option" onclick="checkAnswer(this, false)">studied</div>
+            <p>3. Fill in the blank: They _____ playing football now.</p>
+            <div class="option" onclick="checkAnswer(this, false)">was</div>
+            <div class="option" onclick="checkAnswer(this, false)">is</div>
+            <div class="option" onclick="checkAnswer(this, true)">are</div>
+        </div>
+
+        <div class="question" id="q4">
+            <p>4. What is the synonym of "happy"?</p>
+            <div class="option" onclick="checkAnswer(this, true)">Joyful</div>
+            <div class="option" onclick="checkAnswer(this, false)">Sad</div>
+            <div class="option" onclick="checkAnswer(this, false)">Angry</div>
+        </div>
+
+        <div class="question" id="q5">
+            <p>5. Which is the correct plural form of "child"?</p>
+            <div class="option" onclick="checkAnswer(this, true)">Children</div>
+            <div class="option" onclick="checkAnswer(this, false)">Childs</div>
+            <div class="option" onclick="checkAnswer(this, false)">Childes</div>
+        </div>
+
+        <div class="question" id="q6">
+            <p>6. What is the antonym of "strong"?</p>
+            <div class="option" onclick="checkAnswer(this, true)">Weak</div>
+            <div class="option" onclick="checkAnswer(this, false)">Powerful</div>
+            <div class="option" onclick="checkAnswer(this, false)">Brave</div>
+        </div>
+
+        <div class="question" id="q7">
+            <p>7. Which one is an adjective?</p>
+            <div class="option" onclick="checkAnswer(this, false)">Run</div>
+            <div class="option" onclick="checkAnswer(this, true)">Beautiful</div>
+            <div class="option" onclick="checkAnswer(this, false)">Quickly</div>
+        </div>
+
+        <div class="question" id="q8">
+            <p>8. Fill in the blank: She _____ English very well.</p>
+            <div class="option" onclick="checkAnswer(this, true)">speaks</div>
+            <div class="option" onclick="checkAnswer(this, false)">speak</div>
+            <div class="option" onclick="checkAnswer(this, false)">speaked</div>
+        </div>
+
+        <div class="question" id="q9">
+            <p>9. What is the correct comparative form of "good"?</p>
+            <div class="option" onclick="checkAnswer(this, true)">Better</div>
+            <div class="option" onclick="checkAnswer(this, false)">Gooder</div>
+            <div class="option" onclick="checkAnswer(this, false)">More good</div>
+        </div>
+
+        <div class="question" id="q10">
+            <p>10. Choose the correct sentence:</p>
+            <div class="option" onclick="checkAnswer(this, false)">They is happy today.</div>
+            <div class="option" onclick="checkAnswer(this, true)">They are happy today.</div>
+            <div class="option" onclick="checkAnswer(this, false)">They am happy today.</div>
         </div>
 
         <div id="result"></div>
     </div>
 
     <script>
-        let totalQuestions = 3;
+        let totalQuestions = 10;
         let correctAnswers = 0;
         let answeredQuestions = 0;
 
@@ -100,7 +168,6 @@
             element.parentElement.classList.add("answered");
             answeredQuestions++;
 
-            // Show result if all questions answered
             if (answeredQuestions === totalQuestions) {
                 showResult();
             }
@@ -108,13 +175,15 @@
 
         function showResult() {
             const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = `You answered ${correctAnswers} out of ${totalQuestions} questions correctly.`;
+            resultDiv.innerHTML = `You answered ${correctAnswers} out of ${totalQuestions} questions correctly.<br>`;
             if (correctAnswers === totalQuestions) {
-                resultDiv.innerHTML += "<br>Excellent job!";
-            } else if (correctAnswers >= 2) {
-                resultDiv.innerHTML += "<br>Good, but you can do better!";
+                resultDiv.innerHTML += "🏆 Perfect! You're a Language Hero!";
+            } else if (correctAnswers >= 7) {
+                resultDiv.innerHTML += "🎮 Great! Almost perfect!";
+            } else if (correctAnswers >= 4) {
+                resultDiv.innerHTML += "⚡ Keep practicing, you're improving!";
             } else {
-                resultDiv.innerHTML += "<br>Keep practicing!";
+                resultDiv.innerHTML += "💡 Don't give up, try again!";
             }
         }
     </script>
