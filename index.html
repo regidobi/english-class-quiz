@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Adventure - Grade 8</title>
+    <title>English Adventure - Tenses & Quiz</title>
     <style>
         body {
             font-family: 'Press Start 2P', cursive;
-            background-color: #000;
+            background-image: url('https://images.unsplash.com/photo-1608315399407-f2cc00be9008?auto=format&fit=crop&w=1050&q=80');
+            background-size: cover;
+            background-position: center;
             color: #00ffea;
             padding: 20px;
+            margin: 0;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
-            background-color: #111;
+            background-color: rgba(0, 0, 0, 0.85);
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 0 20px #00ffea;
@@ -23,10 +26,11 @@
             text-align: center;
             color: #00ffea;
         }
-        .intro {
+        .intro, .theory {
             text-align: center;
             margin-bottom: 30px;
-            font-size: 14px;
+            font-size: 12px;
+            line-height: 1.8;
         }
         .question {
             margin-bottom: 25px;
@@ -56,7 +60,7 @@
         #result {
             margin-top: 30px;
             text-align: center;
-            font-size: 16px;
+            font-size: 14px;
             color: #fff;
         }
 
@@ -67,14 +71,27 @@
 
     <div class="container">
         <h1>English Adventure</h1>
-        <h2>Level: Grade 8</h2>
+        <h2>Understanding Tenses & Quiz</h2>
         
         <div class="intro">
-            Welcome to the English Adventure Game!<br>
-            Test your English knowledge by answering the questions below.<br>
-            Click on the correct answer to earn points. Let's start!
+            Welcome, Player!<br>
+            Before you start the quiz, let's review some important English Tenses.
         </div>
 
+        <div class="theory">
+            <strong>Present Simple:</strong> Used for daily routines and facts.<br>
+            Example: I study English.<br><br>
+            <strong>Present Continuous:</strong> Actions happening right now.<br>
+            Example: I am studying English now.<br><br>
+            <strong>Past Simple:</strong> Completed actions in the past.<br>
+            Example: I studied English yesterday.<br><br>
+            <strong>Future Simple:</strong> Actions that will happen.<br>
+            Example: I will study English tomorrow.<br>
+        </div>
+
+        <h2>Let's Start the Quiz!</h2>
+
+        <!-- Quiz Start -->
         <div class="question" id="q1">
             <p>1. What is the past tense of "eat"?</p>
             <div class="option" onclick="checkAnswer(this, true)">Ate</div>
@@ -155,7 +172,7 @@
 
         function checkAnswer(element, isCorrect) {
             if (element.parentElement.classList.contains("answered")) {
-                return; // prevent multiple answers per question
+                return;
             }
             
             if (isCorrect) {
@@ -177,13 +194,13 @@
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = `You answered ${correctAnswers} out of ${totalQuestions} questions correctly.<br>`;
             if (correctAnswers === totalQuestions) {
-                resultDiv.innerHTML += "🏆 Perfect! You're a Language Hero!";
+                resultDiv.innerHTML += "🏆 Perfect! You're a Grammar Hero!";
             } else if (correctAnswers >= 7) {
-                resultDiv.innerHTML += "🎮 Great! Almost perfect!";
+                resultDiv.innerHTML += "🎮 Great! Keep it up!";
             } else if (correctAnswers >= 4) {
-                resultDiv.innerHTML += "⚡ Keep practicing, you're improving!";
+                resultDiv.innerHTML += "⚡ Not bad, but practice more!";
             } else {
-                resultDiv.innerHTML += "💡 Don't give up, try again!";
+                resultDiv.innerHTML += "💡 Don't give up, review the tenses!";
             }
         }
     </script>
